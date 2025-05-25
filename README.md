@@ -1,7 +1,7 @@
 
 # Meshboard 🧩
 
-Meshboard is a **developer collaboration platform** built with a **microservice architecture**. It provides a centralized workspace where developers can **chat**, **manage tasks**, **track teams**, and **collaborate in real-time** — all while integrating modern DevOps and software workflows.
+Meshboard is a **developer collaboration platform** built with a **microservice architecture**. It provides a centralized workspace where developers can **chat**, **manage tasks**, **track teams**, and **collaborate in real-time** , all while integrating modern DevOps and software workflows.
 
 > Built with ❤️ using **Next.js (App Router)**, **TypeScript**, **Socket.IO**, **Tailwind CSS**, and a custom microservices backend.
 
@@ -137,7 +137,7 @@ The frontend communicates with the microservices via an **API Gateway**, which h
 
 ## 🧑‍💻 Author
 
-**Dil** – [LinkedIn](https://www.linkedin.com)
+**Dil** – [LinkedIn](https://www.linkedin.com/in/dilfa-thayyil)
 MERN Stack Developer
 Building Meshboard to help devs collaborate smarter 🚀
 
