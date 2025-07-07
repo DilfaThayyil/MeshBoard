@@ -10,6 +10,7 @@ import { Eye, EyeOff, Loader2, Code2 } from 'lucide-react'
 import { Input } from '@/components/Input'
 import { Button } from '@/components/Button'
 import { Toast } from '@/components/Toast'
+import { loginUser } from '@/lib/api'
 
 const loginSchema = z.object({
   email: z.string().email('Please enter a valid email address'),
@@ -37,26 +38,16 @@ export default function LoginPage() {
     setToast(null)
 
     try {
-      const response = await fetch('http://localhost:4001/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
+      const result = await loginUser(data)
 
-      const result = await response.json()
+      setToast({ message: 'Login successful! Redirecting...', type: 'success' })
+      localStorage.setItem('token', result.token)
 
-      if (response.ok) {
-        setToast({ message: 'Login successful! Redirecting...', type: 'success' })
-        setTimeout(() => {
-          router.push('/dashboard')
-        }, 1500)
-      } else {
-        setToast({ message: result.message || 'Login failed. Please try again.', type: 'error' })
-      }
-    } catch (error) {
-      setToast({ message: 'Network error. Please check your connection.', type: 'error' })
+      setTimeout(() => {
+        router.push('/dashboard')
+      }, 1500)
+    } catch (error: any) {
+      setToast({ message: error.message || 'Login failed', type: 'error' })
     } finally {
       setIsLoading(false)
     }
